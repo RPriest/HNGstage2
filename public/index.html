@@ -92,7 +92,6 @@ future.</p>
 			<div class="clear"></div>
 		</section>
 		
-		
 		<section>
 			<div class="sectionTitle">
 				<h1>Education</h1>
@@ -113,7 +112,98 @@ web design and Web Technologies.</p>
 			</div>
 			<div class="clear"></div>
 		</section>
-		
+		<section>
+			<div class="sectionTitle">
+				<h1></h1>
+			</div>
+			
+			<div class="sectionContent">
+				<article>
+					<h2></h2>
+					<p class="subDetails"></p>
+					<p class="subDetails"></p>
+					<p></p>
+				</article>
+			</div>
+			<div class="clear"></div>
+		</section>
+		<section>
+			<div class="sectionTitle">
+				<h1></h1>
+			</div>
+			
+			<div class="sectionContent">
+				<article>
+					<h2></h2>
+					<p class="subDetails"></p>
+					<p class="subDetails"></p>
+					<p></p>
+				</article>
+			</div>
+			<div class="clear"></div>
+		</section>
+		<section>
+  			<div class="sectionTitle">
+				<h1>Contact</h1>
+			</div>
+			<div class="sectionContent">
+				
+   				<div class="contact" id="contact-id">
+
+					<form action="/ajax/email" class="contact-form" method="POST" onsubmit="return submitEmailForm(this);">
+				<div>
+					<input type="text" name="name" placeholder="name" class="contact-form-input" required />
+				</div>
+				<div>
+					<input type="email" name="email" placeholder="email" class="contact-form-input" required />
+				</div>
+				<div>
+					<textarea name="message" class="contact-form-input" placeholder="MESSAGE" required></textarea>
+				</div>
+				<div>
+					<button type="submit">send</button>
+				</div>
+
+			<div class="clear"></div>
+
+		</section>
+		<section>
+			<div class="sectionTitle">
+				<h1></h1>
+			</div>
+			
+			<div class="sectionContent">
+				<article>
+					<h2></h2>
+					<p class="subDetails"></p>
+					<p class="subDetails"></p>
+					<p></p>
+				</article>
+			</div>
+			<div class="clear"></div>
+		</section>
+
+      <script type="text/javascript">
+		function submitEmailForm(form) {
+			var obj = new XMLHttpRequest();
+			obj.onreadystatechange = function(){
+				if(obj.readyState == 4){
+					if(obj.status == 200){
+						var res = JSON.parse(obj.responseText);
+						alert(res.message);
+					}
+					else{
+						alert("XMLHttp status " + obj.status + ": " + obj.statusText);
+					}
+				}
+			};
+			obj.open("post", form.action, true);
+			obj.setRequestHeader("Content-Type", "application/json"); // NOTICE: "application/json"
+			obj.send(JSON.stringify({ name: form.name.value, email: form.email.value, message: form.message.value }));
+			return false;
+		}
+	</script>
+
 	</div>
 </div>
 <script type="text/javascript">
@@ -127,3 +217,5 @@ pageTracker._trackPageview();
 </script>
 </body>
 </html>
+
+
